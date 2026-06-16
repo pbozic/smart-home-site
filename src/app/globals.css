@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-mist-200 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    @apply bg-brand-400/30 text-white;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-white font-display tracking-tight;
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  /* Page container */
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  /* Section vertical rhythm */
+  .section {
+    @apply py-20 sm:py-28;
+  }
+
+  /* Eyebrow label above headings */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10
+           bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em]
+           text-brand-200;
+  }
+
+  /* Primary gradient button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-gradient-to-r from-brand-400 to-accent-500 px-6 py-3
+           text-sm font-semibold text-ink-950 shadow-glow
+           transition-transform duration-200 hover:-translate-y-0.5
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300;
+  }
+
+  /* Secondary / ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold
+           text-white transition-colors duration-200 hover:bg-white/10
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30;
+  }
+
+  /* Glassy card surface */
+  .card {
+    @apply rounded-3xl border border-white/10 bg-white/[0.03] p-6 shadow-card
+           backdrop-blur-sm;
+  }
+
+  /* Subtle gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-200 via-brand-300 to-accent-400
+           bg-clip-text text-transparent;
+  }
+}
+
+/* Decorative animated grid/glow backdrop helper */
+.bg-hero {
+  background-image:
+    radial-gradient(60% 50% at 50% -10%, rgba(61, 214, 245, 0.16) 0%, transparent 70%),
+    radial-gradient(40% 40% at 85% 10%, rgba(124, 58, 237, 0.14) 0%, transparent 70%);
+}
