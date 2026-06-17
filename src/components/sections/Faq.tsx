@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { homeContent } from "@/content/home";
 
-export function Faq() {
-  const f = homeContent.faq;
+export type FaqProps = typeof homeContent.faq;
+
+export function Faq(props: Partial<FaqProps> = {}) {
+  const f = { ...homeContent.faq, ...props };
   const [open, setOpen] = useState<number | null>(0);
 
   return (

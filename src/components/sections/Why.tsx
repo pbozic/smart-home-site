@@ -1,8 +1,10 @@
 import { homeContent } from "@/content/home";
 import { FeatureIcon } from "@/components/icons";
 
-export function Why() {
-  const w = homeContent.why;
+export type WhyProps = typeof homeContent.why;
+
+export function Why(props: Partial<WhyProps> = {}) {
+  const w = { ...homeContent.why, ...props };
   return (
     <section id="zakaj" className="section">
       <div className="container-x">

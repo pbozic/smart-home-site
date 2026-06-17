@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
     "sanity": "sanity dev",
     "sanity:deploy": "sanity deploy"
   },
@@ -17,8 +18,12 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "next-sanity": "9.8.39",
+    "@sanity/client": "6.29.1",
     "@sanity/image-url": "1.1.0",
-    "@portabletext/react": "3.2.0"
+    "@portabletext/react": "3.2.0",
+    "@measured/puck": "0.20.2",
+    "sanity": "3.99.0",
+    "@sanity/vision": "3.99.0"
   },
   "devDependencies": {
     "@types/node": "22.10.7",
@@ -29,6 +34,11 @@
     "postcss": "8.5.1",
     "autoprefixer": "10.4.20",
     "eslint": "9.18.0",
-    "eslint-config-next": "15.1.6"
+    "eslint-config-next": "15.1.6",
+    "vitest": "2.1.8",
+    "@vitejs/plugin-react": "4.3.4",
+    "@testing-library/react": "16.1.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "jsdom": "25.0.1"
   }
 }

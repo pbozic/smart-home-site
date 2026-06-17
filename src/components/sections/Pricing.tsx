@@ -2,8 +2,10 @@ import Link from "next/link";
 import { homeContent } from "@/content/home";
 import { Check, ArrowRight } from "@/components/icons";
 
-export function Pricing() {
-  const p = homeContent.pricing;
+export type PricingProps = typeof homeContent.pricing;
+
+export function Pricing(props: Partial<PricingProps> = {}) {
+  const p = { ...homeContent.pricing, ...props };
   return (
     <section id="cenik" className="section">
       <div className="container-x">

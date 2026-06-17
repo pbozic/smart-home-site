@@ -3,8 +3,10 @@ import { homeContent } from "@/content/home";
 import { PhoneMockup } from "@/components/graphics/PhoneMockup";
 import { ArrowRight } from "@/components/icons";
 
-export function Hero() {
-  const h = homeContent.hero;
+export type HeroProps = typeof homeContent.hero;
+
+export function Hero(props: Partial<HeroProps> = {}) {
+  const h = { ...homeContent.hero, ...props };
   return (
     <section className="bg-hero relative overflow-hidden">
       {/* faint grid backdrop */}

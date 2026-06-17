@@ -2,8 +2,10 @@ import { homeContent } from "@/content/home";
 import { ecosystem } from "@/lib/brand";
 
 /** "Works with" brand strip — text wordmarks (no third-party logos shipped). */
-export function TrustBar() {
-  const t = homeContent.trust;
+export type TrustBarProps = typeof homeContent.trust;
+
+export function TrustBar(props: Partial<TrustBarProps> = {}) {
+  const t = { ...homeContent.trust, ...props };
   return (
     <section className="border-y border-white/5 bg-ink-900/60">
       <div className="container-x py-10">

@@ -1,7 +1,9 @@
 import { homeContent } from "@/content/home";
 
-export function Steps() {
-  const s = homeContent.steps;
+export type StepsProps = typeof homeContent.steps;
+
+export function Steps(props: Partial<StepsProps> = {}) {
+  const s = { ...homeContent.steps, ...props };
   return (
     <section id="kako" className="section bg-ink-900/40">
       <div className="container-x">

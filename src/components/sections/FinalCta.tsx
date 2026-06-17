@@ -2,8 +2,10 @@ import Link from "next/link";
 import { homeContent } from "@/content/home";
 import { ArrowRight } from "@/components/icons";
 
-export function FinalCta() {
-  const c = homeContent.finalCta;
+export type FinalCtaProps = typeof homeContent.finalCta;
+
+export function FinalCta(props: Partial<FinalCtaProps> = {}) {
+  const c = { ...homeContent.finalCta, ...props };
   return (
     <section className="section">
       <div className="container-x">

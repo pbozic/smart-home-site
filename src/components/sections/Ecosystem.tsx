@@ -2,8 +2,10 @@ import { homeContent } from "@/content/home";
 import { ecosystem } from "@/lib/brand";
 import { HubDiagram } from "@/components/graphics/HubDiagram";
 
-export function Ecosystem() {
-  const e = homeContent.ecosystem;
+export type EcosystemProps = typeof homeContent.ecosystem;
+
+export function Ecosystem(props: Partial<EcosystemProps> = {}) {
+  const e = { ...homeContent.ecosystem, ...props };
   return (
     <section className="section">
       <div className="container-x grid items-center gap-14 lg:grid-cols-2">

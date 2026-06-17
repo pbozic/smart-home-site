@@ -1,8 +1,10 @@
 import { homeContent } from "@/content/home";
 import { Check, Cross } from "@/components/icons";
 
-export function Comparison() {
-  const c = homeContent.comparison;
+export type ComparisonProps = typeof homeContent.comparison;
+
+export function Comparison(props: Partial<ComparisonProps> = {}) {
+  const c = { ...homeContent.comparison, ...props };
   return (
     <section className="section bg-ink-900/40">
       <div className="container-x">
