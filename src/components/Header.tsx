@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { brand } from "@/lib/brand";
-import { navLinks } from "@/lib/nav";
+import { isNavLinkActive, navLinks } from "@/lib/nav";
 import { Logo } from "@/components/Logo";
 import { Menu, Cross } from "@/components/icons";
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -41,15 +43,23 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-mist-300 transition-colors hover:text-white"
-            >
-              {l.label}
-            </Link>
-          ))}
+          {navLinks.map((l) => {
+            const active = isNavLinkActive(pathname, l.href);
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                className={`text-sm font-medium transition-colors ${
+                  active
+                    ? "text-brand-200"
+                    : "text-mist-300 hover:text-white"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -76,16 +86,24 @@ export function Header() {
       {open && (
         <div className="lg:hidden">
           <nav className="container-x flex flex-col gap-1 border-t border-white/10 bg-ink-950/95 pb-6 pt-2 backdrop-blur-xl">
-            {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="rounded-xl px-3 py-3 text-base font-medium text-mist-200 hover:bg-white/5 hover:text-white"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {navLinks.map((l) => {
+              const active = isNavLinkActive(pathname, l.href);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`rounded-xl px-3 py-3 text-base font-medium transition-colors ${
+                    active
+                      ? "bg-brand-400/10 text-brand-200"
+                      : "text-mist-200 hover:bg-white/5 hover:text-white"
+                  }`}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
             <Link
               href="/kontakt/"
               onClick={() => setOpen(false)}

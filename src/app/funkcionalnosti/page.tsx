@@ -25,7 +25,7 @@ export default function FunkcionalnostiPage() {
           <div className="overflow-hidden rounded-4xl border border-brand-400/20 bg-gradient-to-b from-brand-400/[0.07] to-transparent p-8 shadow-glow sm:p-10">
             <span className="eyebrow">{f.dashboard.eyebrow}</span>
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl">{f.dashboard.title}</h2>
-            <p className="mt-4 max-w-2xl leading-relaxed text-mist-300">{f.dashboard.text}</p>
+            <p className="mt-4  leading-relaxed text-mist-300">{f.dashboard.text}</p>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
               {f.dashboard.points.map((p) => (
                 <li key={p} className="flex items-start gap-3 text-sm text-mist-200">
