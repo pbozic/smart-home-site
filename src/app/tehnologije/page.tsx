@@ -39,6 +39,9 @@ export default function TehnologijePage() {
           </div>
         </div>
       </section>
+      <div>
+        <img src="/assets/home-assistant-use-logos.svg" alt="Home Assistant ekosistem z logotipi blagovnih znamk" />
+      </div>
 
       {/* Open / local / yours — the three trust pillars */}
       <section className="section bg-ink-900/40">
