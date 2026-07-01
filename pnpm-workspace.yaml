@@ -1,4 +1,6 @@
-allowBuilds:
-  esbuild: true
-  sharp: true
-  unrs-resolver: true
+packages:
+  - .
+
+# Dependencies allowed to run install/build scripts (pnpm's build approval).
+onlyBuiltDependencies:
+  - esbuild

@@ -7,7 +7,7 @@
 
 import { rmSync, existsSync } from "fs";
 
-const DEV_ROUTES = ["out/calculator"];
+const DEV_ROUTES = ["out/calculator", "out/calculator2"];
 
 for (const route of DEV_ROUTES) {
   if (existsSync(route)) {
